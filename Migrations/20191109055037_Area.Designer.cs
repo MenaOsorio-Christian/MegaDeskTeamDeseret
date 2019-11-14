@@ -4,14 +4,16 @@ using MegaDeskTeamDeseret.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MegaDeskTeamDeseret.Migrations
 {
     [DbContext(typeof(MegaDeskTeamDeseretContext))]
-    partial class MegaDeskTeamDeseretContextModelSnapshot : ModelSnapshot
+    [Migration("20191109055037_Area")]
+    partial class Area
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

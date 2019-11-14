@@ -8,16 +8,27 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Get New Quote</a>
 </p>
-<table class="table">
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-gutters color">
+        <p>
+            Enter Customer Last Name: <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search Quote" class="btn btn-success"/>
+         </p>
+    </div>
+</form>
+<table class="table table-info table-hover">
     <thead>
         <tr>
-            <th>
+            <th class="m-0">
                 @Html.DisplayNameFor(model => model.Quote[0].FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Quote[0].LastName)
+                <a asp-page="./Index" asp-route-sortorder="@Model.NameSort">
+                    @Html.DisplayNameFor(model => model.Quote[0].LastName)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Quote[0].DeskWidth)
@@ -32,10 +43,18 @@
                 @Html.DisplayNameFor(model => model.Quote[0].SurfaceMaterial)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Quote[0].Area)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Quote[0].RushDays)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Quote[0].SubmitedDate)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.Quote[0].SubmitedDate)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].Price)
             </th>
             <th></th>
         </tr>
@@ -61,11 +80,17 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SurfaceMaterial)
             </td>
+            <th>
+                @Html.DisplayFor(mmodelItem => item.Area)
+            </th>
             <td>
                 @Html.DisplayFor(modelItem => item.RushDays)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SubmitedDate)
+            </td>
+            <td>
+               $ @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

@@ -40,13 +40,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="Quote.SurfaceMaterial" class="control-label"></label>
-                <input asp-for="Quote.SurfaceMaterial" class="form-control" />
-                <span asp-validation-for="Quote.SurfaceMaterial" class="text-danger"></span>
+                <select asp-for="Quote.SurfaceMaterial" class="form-control">
+                    <option value="Rosewood">Rosewood</option>
+                    <option value="Veneer">Veneer</option>
+                    <option value="Oak">Oak</option>
+                    <option value="Pine">Pine</option>
+                    <option value="Laminate">Laminate</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Quote.RushDays" class="control-label"></label>
-                <input asp-for="Quote.RushDays" class="form-control" />
-                <span asp-validation-for="Quote.RushDays" class="text-danger"></span>
+                <select id="shipping-drop-down" asp-for="Quote.RushDays" class="form-control">
+                    <option value=3>3</option>
+                    <option value=5>5</option>
+                    <option value=7>7</option>
+                    <option value=14>14</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Quote.SubmitedDate" class="control-label"></label>
@@ -54,7 +63,7 @@
                 <span asp-validation-for="Quote.SubmitedDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
         </form>
     </div>
